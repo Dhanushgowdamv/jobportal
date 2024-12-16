@@ -17,7 +17,7 @@ const JobDescription = (job) => {
   const {singleJob} = useSelector(store => store.job);
   const {user} = useSelector(store=>store.auth);
   const dispatch = useDispatch();
-
+           
   useEffect(()=>{
     const fetchSingleJob = async () => {
         try {
