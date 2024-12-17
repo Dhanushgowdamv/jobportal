@@ -1,4 +1,4 @@
-import {Application }from '../models/application.model.js'
+import { Application } from "../models/application.model.js";
 import { Job } from "../models/job.model.js";
 
 export const applyJob = async (req, res) => {
@@ -45,7 +45,7 @@ export const applyJob = async (req, res) => {
         console.log(error);
     }
 };
-export const getAppliedJob = async (req,res) => {
+export const getAppliedJobs = async (req,res) => {
     try {
         const userId = req.id;
         const application = await Application.find({applicant:userId}).sort({createdAt:-1}).populate({
@@ -71,7 +71,7 @@ export const getAppliedJob = async (req,res) => {
     }
 }
 // admin dekhega kitna user ne apply kiya hai
-export const getApplicant = async (req,res) => {
+export const getApplicants = async (req,res) => {
     try {
         const jobId = req.params.id;
         const job = await Job.findById(jobId).populate({
@@ -95,7 +95,7 @@ export const getApplicant = async (req,res) => {
         console.log(error);
     }
 }
-export const updateStatu = async (req,res) => {
+export const updateStatus = async (req,res) => {
     try {
         const {status} = req.body;
         const applicationId = req.params.id;

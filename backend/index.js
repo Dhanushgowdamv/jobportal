@@ -39,7 +39,7 @@ const PORT = process.env.PORT || 8000;
 app.use("/api/v1/user",router);
 app.use("/api/v1/company",companyRouter);
 app.use("/api/v1/job",jobRouter);
-app.use("api/v1/application",applications)
+app.use("/api/v1/application",applications)
 app.listen(PORT,()=>{
     connectdb();
     console.log(`server is running at ${PORT}`)

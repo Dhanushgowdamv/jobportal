@@ -1,15 +1,15 @@
 import express from 'express';
 import isAuthenticated from '../middleware/isAuthenticated.js';
-import { applyJob, getApplicant,  getAppliedJob, updateStatu,  } from '../controller/application.controller.js';
+import { applyJob,   getApplicants,  getAppliedJobs,  updateStatus,  } from '../controller/application.controller.js';
 
 // Create a router instance
 const router = express.Router();
 
 // Define routes
-router.route("/apply/:id").post(isAuthenticated,applyJob);
-router.route("/get").get(isAuthenticated,getAppliedJob);
-router.route("/:id/applicants").get(isAuthenticated,getApplicant)
-router.route("/status/:id/update").put(isAuthenticated, updateStatu);
+router.route("/apply/:id").get(isAuthenticated,applyJob);
+router.route("/get").get(isAuthenticated,getAppliedJobs);
+router.route("/:id/applicants").get(isAuthenticated,getApplicants)
+router.route("/status/:id/update").post(isAuthenticated, updateStatus);
 
 // Export the router
 export default router;

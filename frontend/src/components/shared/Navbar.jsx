@@ -5,7 +5,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { useDispatch, useSelector } from "react-redux";
-import store from "@/redux/store";
 import { LogOut, User2 } from "lucide-react";
 import axios from "axios";
 import { USER_API_ENDPOINT } from "@/utils/constant";
@@ -42,15 +41,13 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-2">
           <ul className="flex font-medium items-center gap-5 text-gray-600">
-            <li className="hover:text-[#f83002] cursor-pointer transition-all duration-300">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="hover:text-[#f83002] cursor-pointer transition-all duration-300">
-              <Link to="jobs">Jobs</Link>
-            </li>
-            <li className="hover:text-[#f83002] cursor-pointer transition-all duration-300">
-              <Link to="Browser">Browser</Link>
-            </li>
+           {
+            user && user.role == 'recuriter' ?(
+              <>
+              
+              </>
+            )
+           }
           </ul>
           {!user ? (
             <div className="flex items-center gap-4">
