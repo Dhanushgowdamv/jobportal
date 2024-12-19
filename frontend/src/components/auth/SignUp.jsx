@@ -162,18 +162,18 @@ function SignUp() {
                     onChange={changeEventHandler}
                     className="cursor-pointer focus:ring focus:ring-blue-300"
                   />
-                  <span className="text-sm text-gray-700">workers</span>
+                  <span className="text-sm text-gray-700">Student</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input
                     type="radio"
                     name="role"
-                    value="recruiter"
-                    checked={input.role === "recruiter"}
+                    value="recuriter"
+                    checked={input.role === "recuriter"}
                     onChange={changeEventHandler}
                     className="cursor-pointer focus:ring focus:ring-blue-300"
                   />
-                  <span className="text-sm text-gray-700">custmers</span>
+                  <span className="text-sm text-gray-700">recuriter</span>
                 </label>
               </div>
             </div>

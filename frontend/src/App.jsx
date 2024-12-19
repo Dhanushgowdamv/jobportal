@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import SignUp from "./components/auth/signUp";
 import Profile from "./components/Profile";
 import JobDescription from "./components/JobDescription";
+import Companies from "./components/admin/Companies";
 const appRouter = createBrowserRouter([
   { path: "/", element: <Home /> },
 
@@ -38,6 +39,12 @@ const appRouter = createBrowserRouter([
     element: <Profile />,
   },
   
+  // admmin page
+
+{
+  path:"/admin/companies",
+  element:<Companies/>
+},
 
   
 ]);

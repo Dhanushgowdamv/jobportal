@@ -31,36 +31,78 @@ const Navbar = () => {
       toast.error(error.response.data.message);
     }
   };
+
   return (
-    <div className="bg-white">
-      <div className="flex items-center justify-between py-4 px-16 bg-gray-100 shadow-md">
+    <div className="bg-white shadow-md">
+      <div className="flex items-center justify-between py-4 px-8 sm:px-16 bg-gray-100">
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">
+          <h1 className="text-2xl font-semibold text-gray-800">
             Job <span className="text-[#f83002]">Portal</span>
           </h1>
         </div>
-        <div className="flex items-center gap-2">
-          <ul className="flex font-medium items-center gap-5 text-gray-600">
-           {
-            user && user.role == 'recuriter' ?(
+        <div className="flex items-center gap-4">
+          <ul className="flex font-medium items-center gap-5 text-gray-700">
+            {user && user.role === "recuriter" ? (
               <>
-              
+                <li>
+                  <Link
+                    to="/admin/companies"
+                    className="hover:text-[#f83002] transition-all duration-300"
+                  >
+                    Companies
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/jobs"
+                    className="hover:text-[#f83002] transition-all duration-300"
+                  >
+                    Jobs
+                  </Link>
+                </li>
               </>
-            )
-           }
+            ) : (
+              <>
+                <li>
+                  <Link
+                    to="/"
+                    className="hover:text-[#f83002] transition-all duration-300"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/jobs"
+                    className="hover:text-[#f83002] transition-all duration-300"
+                  >
+                    Jobs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/browser"
+                    className="hover:text-[#f83002] transition-all duration-300"
+                  >
+                    Browse
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
+
           {!user ? (
             <div className="flex items-center gap-4">
               <Link to="/login">
                 <Button
                   variant="outline"
-                  className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:text-[#f83002]  bg-gray-100 focus:outline-none transition-all duration-300"
+                  className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:text-[#f83002] bg-gray-100 focus:outline-none transition-all duration-300"
                 >
                   Login
                 </Button>
               </Link>
               <Link to="/signUP">
-                <Button className="px-4 py-2   bg-[#6430bd] text-white rounded-md hover:text-[#f83002]   focus:outline-none transition-all-300 duration-300">
+                <Button className="px-4 py-2 bg-[#6430bd] text-white rounded-md hover:text-[#f83002] focus:outline-none transition-all duration-300">
                   Sign Up
                 </Button>
               </Link>
@@ -72,6 +114,7 @@ const Navbar = () => {
                   <AvatarImage
                     src={user.profile.profilePhoto}
                     alt="@shadcn"
+                    className="rounded-full"
                   />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
@@ -96,23 +139,27 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                <div className="mt-4">
-                  <Button
+                <div className="mt-4 space-y-2">
+                  {
+                    user && user.role === 'student'&&(
+                    
+                    <Button
                     variant="link"
                     className="flex items-center justify-start w-full text-left hover:bg-red-50 px-3 py-2 rounded-md"
                   >
                     <Link to="/profile" className="flex items-center">
-                      <User2 className="mr-2" />{" "}
-                      {/* Add margin-right for spacing */}
-                      View Profile
+                      <User2 className="mr-2" /> View Profile
                     </Link>
-                  </Button>
+                  </Button>)
+                  }
+                  
 
-                  <div className="flex w-fit items-center gap-2 cursor-pointer">
+                  <div
+                    className="flex items-center gap-2 cursor-pointer text-red-500 hover:bg-red-100 px-3 py-2 rounded-md"
+                    onClick={logoutHandler}
+                  >
                     <LogOut />
-                    <Button onClick={logoutHandler} variant="Link">
-                      Logout
-                    </Button>
+                    <Button variant="link">Logout</Button>
                   </div>
                 </div>
               </PopoverContent>
@@ -123,4 +170,5 @@ const Navbar = () => {
     </div>
   );
 };
+
 export default Navbar;
