@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between py-4 px-8 sm:px-16 bg-gray-100">
         <div>
           <h1 className="text-2xl font-semibold text-gray-800">
-            Job <span className="text-[#f83002]">Portal</span>
+            job <span className="text-[#f83002]">Portal</span>
           </h1>
         </div>
         <div className="flex items-center gap-4">

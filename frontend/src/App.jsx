@@ -1,60 +1,71 @@
-/* eslint-disable react/jsx-no-undef */
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Navbar from './components/shared/Navbar'
+import Login from './components/auth/Login'
+import Signup from './components/auth/Signup'
+import Home from './components/Home'
+import Jobs from './components/Jobs'
+import Browse from './components/Browse'
+import Profile from './components/Profile'
+import JobDescription from './components/JobDescription'
+import Companies from './components/admin/Companies'
+import CompanyCreate from './components/admin/CompanyCreate'
+import CompanySetup from './components/admin/CompanySetup'
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
-import Browse from "./components/Browse";
-import Jobs from "./components/Jobs";
-import Navbar from "./components/shared/Navbar";
-import Login from "./components/auth/Login";
-import Home from "./components/Home";
-import SignUp from "./components/auth/signUp";
-import Profile from "./components/Profile";
-import JobDescription from "./components/JobDescription";
-import Companies from "./components/admin/Companies";
+
+
 const appRouter = createBrowserRouter([
-  { path: "/", element: <Home /> },
-
   {
-    path: "/login",
-    element: <Login />,
+    path: '/',
+    element: <Home />
   },
   {
-    path: "/signUp",
-    element: <SignUp />,
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '/signup',
+    element: <Signup />
   },
   {
     path: "/jobs",
-    element: <Jobs />,
+    element: <Jobs />
   },
   {
-    path:"/description/:id",
-    element:<JobDescription/>
+    path: "/description/:id",
+    element: <JobDescription />
   },
   {
-    path: "/Browser",
-    element: <Browse />,
+    path: "/browse",
+    element: <Browse />
   },
   {
     path: "/profile",
-    element: <Profile />,
+    element: <Profile />
+  },
+  // admin ke liye yha se start hoga
+  {
+    path:"/admin/companies",
+    element: <Companies/>
+  },
+  {
+    path:"/admin/companies/create",
+    element: < CompanyCreate/>
+  },
+  {
+    path:"/admin/companies/:id",
+    element: < CompanySetup/>
   },
   
-  // admmin page
-
-{
-  path:"/admin/companies",
-  element:<Companies/>
-},
-
   
-]);
 
+])
 function App() {
+
   return (
-    <>
+    <div>
       <RouterProvider router={appRouter} />
-    </>
-  );
+    </div>
+  )
 }
 
-export default App;
+export default App

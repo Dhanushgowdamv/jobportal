@@ -8,7 +8,7 @@ import useGetAllJobs from '@/hooks/useGetAllJobs.jsx'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-function Home() {
+const Home = () =>{
   useGetAllJobs();
   const {user} = useSelector(store => store.auth);
   const navigate = useNavigate();
