@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
+
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import authSlice from "./authSlice";
-import jobSlice from "./jobSlice";
+import authSlice from "./authSlice"
+import jobSlice from "./jobSlice"
 import {
     persistStore,
     persistReducer,
