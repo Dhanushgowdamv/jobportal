@@ -24,6 +24,6 @@ const Companies = () => {
         </div>
     </div>
   )
-}
+}                                                                                    
 
 export default Companies
